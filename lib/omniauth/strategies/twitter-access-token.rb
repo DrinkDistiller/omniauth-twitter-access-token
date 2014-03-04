@@ -88,6 +88,7 @@ module OmniAuth
         # Instead of calling super, duplicate the functionlity, but change the provider to 'facebook'.
         # This is done in order to preserve compatibilty with the regular facebook provider
         hash = auth_hash
+        hash[:uid] = hash[:uid].to_s
         hash[:provider] = "twitter"
         self.env['omniauth.auth'] = hash
         call_app!
